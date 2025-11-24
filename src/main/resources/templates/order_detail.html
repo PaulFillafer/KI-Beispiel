@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Bestellung</title>
+</head>
+<body>
+  <h1 th:text="${order.customer}">Bestellung</h1>
+  <p>Status: <span th:text="${order.status}"></span></p>
+  <p>Notiz: <span th:text="${order.note}"></span></p>
+  <ul>
+    <li th:each="i : ${order.items}" th:text="${i.name} + ' x' + ${i.quantity}"></li>
+  </ul>
+  <a href="/orders">Zurück</a>
+</body>
+</html>

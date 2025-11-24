@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Bestellungen</title>
+</head>
+<body>
+  <h1>Bestellungen</h1>
+  <a href="/orders/new">Neue Bestellung</a>
+  <ul>
+    <th:block th:each="o : ${orders}">
+      <li><a th:href="@{'/orders/' + ${o.id}}" th:text="${o.customer}"></a> - <span th:text="${o.status}"></span></li>
+    </th:block>
+  </ul>
+</body>
+</html>

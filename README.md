@@ -1,13 +1,22 @@
-# KI-Beispiel
+# REST-API für Essensbestellung (Spring Boot)
 
-Demo Java Spring Anwendung (Maven)
+Dieses Beispiel stellt eine REST-API und ein einfaches GUI-Frontend (Thymeleaf) bereit, persistiert via JPA in einer MySQL-Datenbank.
 
-- Java: 25
-- Spring Boot: 3.5.7 (as requested)
+Start:
+- MySQL aufsetzen und Datenbank `ki_beispiel` anlegen
+- application.properties anpassen (username/password)
+- mvn spring-boot:run
 
-Demo REST endpoint: GET /api/hello
+API-Endpunkte (JSON):
+- GET /api/orders
+- GET /api/orders/{id}
+- POST /api/orders
+- PUT /api/orders/{id}
+- DELETE /api/orders/{id}
 
-Build and run:
+Web-UI:
+- GET /orders -> Liste
+- GET /orders/new -> Formular
+- POST /orders -> Formular absenden
 
-mvn clean package
-java -jar target/KI-Beispiel-0.0.1-SNAPSHOT.jar
+Hinweis: Diese Implementierung ist ein Beispiel. Für Produktion sollte man Sicherheitsmechanismen (Auth), Validierung, Fehlerbehandlung und Tests ergänzen.
