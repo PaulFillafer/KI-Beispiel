@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Neue Bestellung</title>
+</head>
+<body>
+  <h1>Neue Bestellung</h1>
+  <form th:action="@{/orders}" method="post" th:object="${order}">
+    <label>Kunde: <input type="text" th:field="*{customer}"/></label><br/>
+    <label>Notiz: <input type="text" th:field="*{note}"/></label><br/>
+    <div th:each="item,iterStat : *{items}">
+      <label>Artikel: <input type="text" th:field="*{items[__${iterStat.index}__].name}"/></label>
+      <label>Menge: <input type="number" th:field="*{items[__${iterStat.index}__].quantity}"/></label>
+    </div>
+    <button type="submit">Bestellen</button>
+  </form>
+</body>
+</html>

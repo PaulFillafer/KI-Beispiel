@@ -1,30 +1,22 @@
-# REST-API für Essensbestellung (Beispiel)
+# REST-API für Essensbestellung (Spring Boot)
+
+Dieses Beispiel stellt eine REST-API und ein einfaches GUI-Frontend (Thymeleaf) bereit, persistiert via JPA in einer MySQL-Datenbank.
 
 Start:
-- npm install
-- npm start
+- MySQL aufsetzen und Datenbank `ki_beispiel` anlegen
+- application.properties anpassen (username/password)
+- mvn spring-boot:run
 
-Endpoints:
-- GET /orders
-  - Liste aller Bestellungen
-- GET /orders/:id
-  - Einzelne Bestellung abrufen
-- POST /orders
-  - Bestellung anlegen
-  - Beispiel-Body:
-  ```json
-  {
-    "customer": "Max Mustermann",
-    "items": [
-      { "name": "Pizza Margherita", "quantity": 1 },
-      { "name": "Cola", "quantity": 2 }
-    ],
-    "note": "Keine Zwiebeln"
-  }
-  ```
-- PUT /orders/:id
-  - Bestellung aktualisieren (ganze oder teilweise Felder)
-- DELETE /orders/:id
-  - Bestellung löschen
+API-Endpunkte (JSON):
+- GET /api/orders
+- GET /api/orders/{id}
+- POST /api/orders
+- PUT /api/orders/{id}
+- DELETE /api/orders/{id}
 
-Hinweis: Diese Implementierung verwendet einen einfachen In-Memory-Store. Für Produktion nutze bitte eine persistente Datenbank (z. B. PostgreSQL, MongoDB) und Authentifizierung.
+Web-UI:
+- GET /orders -> Liste
+- GET /orders/new -> Formular
+- POST /orders -> Formular absenden
+
+Hinweis: Diese Implementierung ist ein Beispiel. Für Produktion sollte man Sicherheitsmechanismen (Auth), Validierung, Fehlerbehandlung und Tests ergänzen.
